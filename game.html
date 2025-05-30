@@ -1,10 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <title>BigTacToe</title>
+    <link rel="stylesheet" href="css/game.css" />
 </head>
 <body>
 
+<div class="board">
+
+    <div class="cell" id="cell1">
+        <div class="inner-board">
+            <div class="inner-cell"><button id="1-1" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="1-2" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="1-3" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="1-4" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="1-5" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="1-6" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="1-7" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="1-8" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="1-9" onclick="placeBox(this)"></button></div>
+        </div>
+    </div>
+
+    <div class="cell" id="cell2">
+        <div class="inner-board">
+            <div class="inner-cell"><button id="2-1" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="2-2" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="2-3" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="2-4" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="2-5" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="2-6" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="2-7" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="2-8" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="2-9" onclick="placeBox(this)"></button></div>
+        </div>
+    </div>
+
+    <div class="cell" id="cell3">
+        <div class="inner-board">
+            <div class="inner-cell"><button id="3-1" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="3-2" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="3-3" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="3-4" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="3-5" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="3-6" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="3-7" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="3-8" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="3-9" onclick="placeBox(this)"></button></div>
+        </div>
+    </div>
+
+    <div class="cell" id="cell4">
+        <div class="inner-board">
+            <div class="inner-cell"><button id="4-1" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="4-2" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="4-3" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="4-4" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="4-5" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="4-6" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="4-7" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="4-8" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="4-9" onclick="placeBox(this)"></button></div>
+        </div>
+    </div>
+
+    <div class="cell" id="cell5">
+        <div class="inner-board">
+            <div class="inner-cell"><button id="5-1" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="5-2" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="5-3" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="5-4" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="5-5" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="5-6" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="5-7" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="5-8" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="5-9" onclick="placeBox(this)"></button></div>
+        </div>
+    </div>
+
+    <div class="cell" id="cell6">
+        <div class="inner-board">
+            <div class="inner-cell"><button id="6-1" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="6-2" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="6-3" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="6-4" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="6-5" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="6-6" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="6-7" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="6-8" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="6-9" onclick="placeBox(this)"></button></div>
+        </div>
+    </div>
+
+    <div class="cell" id="cell7">
+        <div class="inner-board">
+            <div class="inner-cell"><button id="7-1" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="7-2" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="7-3" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="7-4" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="7-5" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="7-6" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="7-7" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="7-8" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="7-9" onclick="placeBox(this)"></button></div>
+        </div>
+    </div>
+
+    <div class="cell" id="cell8">
+        <div class="inner-board">
+            <div class="inner-cell"><button id="8-1" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="8-2" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="8-3" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="8-4" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="8-5" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="8-6" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="8-7" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="8-8" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="8-9" onclick="placeBox(this)"></button></div>
+        </div>
+    </div>
+
+    <div class="cell" id="cell9">
+        <div class="inner-board">
+            <div class="inner-cell"><button id="9-1" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="9-2" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="9-3" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="9-4" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="9-5" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="9-6" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="9-7" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="9-8" onclick="placeBox(this)"></button></div>
+            <div class="inner-cell"><button id="9-9" onclick="placeBox(this)"></button></div>
+        </div>
+    </div>
+
+</div>
+<br>
+<div id="error"></div>
+
+
+
+<script src="js/game.js"></script>
 </body>
 </html>
