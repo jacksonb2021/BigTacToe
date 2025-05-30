@@ -10,7 +10,8 @@ resetBoxBorders();
 
 let game = {
     curMove:"X",
-    location:0
+    location:0,
+    wonBoxes:[]
 }
 
 function changeMove(){
@@ -42,6 +43,7 @@ function setBoxColor(cell) {
 
 function placeBox(elem) {
 
+    //another check to make sure the current location is not filled in already
 
     let [outerbox, innerbox] = elem.id.split("-").map(Number);
 
@@ -58,6 +60,7 @@ function placeBox(elem) {
     game.location = innerbox;
     setBoxColor(innerbox);
     changeMove();
+    checkWin(outerbox)
 
 }
 
@@ -81,9 +84,13 @@ function checkWin(curCell){
 
         for(const pattern of winPatterns){
             if(pattern.every(pos=>OBox.includes(pos))){
+                document.getElementById(`cell${curCell}`).innerHTML="O"
+                game.wonBoxes.push(curCell);
 
             }
             if(pattern.every(pos=>XBox.includes(pos))){
+                document.getElementById(`cell${curCell}`).innerHTML="X"
+                game.wonBoxes.push(curCell);
 
             }
 
