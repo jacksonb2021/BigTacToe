@@ -5,14 +5,13 @@ const winPatterns = [
     [1,5,9],[3,5,7]
 ]
 
-resetBoxBorders();
-
-
 let game = {
     curMove:"X",
     location:0,
     wonBoxes:[]
 }
+resetBoxBorders();
+showTurn();
 
 function changeMove(){
     if (game.curMove==="X"){
@@ -27,19 +26,23 @@ function setError(message){
 }
 
 function resetBoxBorders() {
-    for (let i = 1; i <= 9; i++) {
+	/*todo: highlight last move*/
+	for (let i = 1; i <= 9; i++) {
         let cell = document.getElementById(`cell${i}`);
-        cell.style.border = "1px solid black"; // Reset to normal border
+        cell.style.border = "2px solid black"; // Reset to normal border
     }
 }
 
 function setBoxColor(cell) {
     resetBoxBorders();
     let box = document.getElementById(`cell${cell}`);
-    box.style.border = "2px solid red"; // Highlight the target box
+    box.style.border = "3px solid red"; // Highlight the target box
 }
 
-
+function showTurn(){
+	let elem = document.getElementById('turn')
+	elem.innerText=game.curMove;
+}
 
 function placeBox(elem) {
 
@@ -47,7 +50,7 @@ function placeBox(elem) {
 
     let [outerbox, innerbox] = elem.id.split("-").map(Number);
 
-    if (game.location !== 0 && game.location !== outerbox) {
+    if (game.location !== 0 && game.location !== outerbox&& game.location ) {
         setError(`You cannot go in this square, try again! You must go in square ${game.location}`);
         return;
     }
@@ -56,11 +59,16 @@ function placeBox(elem) {
         return;
     }
 
+	//todo if square is taken, then can go anywhere
+
+
+	//todo erset error after turn - reset tun function
     elem.innerText = game.curMove;
     game.location = innerbox;
     setBoxColor(innerbox);
     changeMove();
     checkWin(outerbox)
+	showTurn()
 
 }
 
