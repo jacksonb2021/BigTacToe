@@ -49,8 +49,8 @@ function placeBox(elem) {
     //another check to make sure the current location is not filled in already
 
     let [outerbox, innerbox] = elem.id.split("-").map(Number);
-
-    if (game.location !== 0 && game.location !== outerbox&& game.location ) {
+//de morgans law hehe
+    if (game.location !== 0 && game.location !== outerbox&& !game.wonBoxes.includes(game.location) ) {
         setError(`You cannot go in this square, try again! You must go in square ${game.location}`);
         return;
     }
