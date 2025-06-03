@@ -5,13 +5,31 @@ const winPatterns = [
     [1,5,9],[3,5,7]
 ]
 
+let lastMove;
 let game = {
     curMove:"X",
     location:0,
+    OWins:[],
+    XWins:[],
     wonBoxes:[]
 }
 resetBoxBorders();
 showTurn();
+
+
+function resetBoard(){
+    game = new game;
+    location.reload()
+    resetBoxBorders();
+    showTurn();
+}
+function setWinner(winner){
+    //TODO - mark a big line through where they won - might be hard for diagonals
+    // winner screen
+    //reset method
+
+
+}
 
 function changeMove(){
     if (game.curMove==="X"){
@@ -26,8 +44,8 @@ function setError(message){
 }
 
 function resetBoxBorders() {
-	/*todo: highlight last move*/
-	for (let i = 1; i <= 9; i++) {
+    /*todo: highlight last move*/
+    for (let i = 1; i <= 9; i++) {
         let cell = document.getElementById(`cell${i}`);
         cell.style.border = "2px solid black"; // Reset to normal border
     }
@@ -40,14 +58,11 @@ function setBoxColor(cell) {
 }
 
 function showTurn(){
-	let elem = document.getElementById('turn')
-	elem.innerText=game.curMove;
+    let elem = document.getElementById('turn')
+    elem.innerText=game.curMove;
 }
 
 function placeBox(elem) {
-
-    //another check to make sure the current location is not filled in already
-
     let [outerbox, innerbox] = elem.id.split("-").map(Number);
 //de morgans law hehe
     if (game.location !== 0 && game.location !== outerbox&& !game.wonBoxes.includes(game.location) ) {
@@ -59,16 +74,22 @@ function placeBox(elem) {
         return;
     }
 
-	//todo if square is taken, then can go anywhere
 
 
-	//todo erset error after turn - reset tun function
+    // todo ; if move is in taken square, highlight whole box
+
+    if(lastMove!==undefined){
+        lastMove.classList.remove("last-move")
+    }
     elem.innerText = game.curMove;
+    elem.classList.add("last-move")
+    lastMove=elem;
     game.location = innerbox;
     setBoxColor(innerbox);
     changeMove();
     checkWin(outerbox)
-	showTurn()
+    showTurn()
+    setError("")
 
 }
 
@@ -79,6 +100,7 @@ function checkWin(curCell){
     let OBox = [];
     let i = 1;
     let box = document.getElementById(`cell${curCell}`).firstElementChild.children;
+    //check individual cell
     if(curCell!==undefined) {
         for(const child of box){
             if(child.innerText==="X"){
@@ -91,19 +113,35 @@ function checkWin(curCell){
         }
 
         for(const pattern of winPatterns){
+            //check every possible combination of wins
             if(pattern.every(pos=>OBox.includes(pos))){
                 document.getElementById(`cell${curCell}`).innerHTML="O"
                 game.wonBoxes.push(curCell);
+                game.OWins.push(curCell);
 
             }
             if(pattern.every(pos=>XBox.includes(pos))){
                 document.getElementById(`cell${curCell}`).innerHTML="X"
                 game.wonBoxes.push(curCell);
+                game.XWins.push(curCell);
 
             }
 
+        }
+
+
+    } else {
+        for(const pattern of winPatterns){
+            if(pattern.every(pos=>game.OWins.includes(pos))){
+                setWinner("O")
+
+            }
+            if(pattern.every(pos=>game.XWins.includes(pos))){
+                setWinner("X")
+
+
+            }
+
+        }
     }
-
-
-}
 }
