@@ -1,3 +1,14 @@
+class Game{
+    constructor(){
+        this.curMove="X";
+        this.location=0;
+        this.OWins=[];
+        this.XWins=[];
+        this.wonBoxes=[];
+
+    }
+}
+
 const error = document.getElementById("error")
 const winPatterns = [
     [1,2,3],[4,5,6],[7,8,9],//horiz
@@ -6,19 +17,21 @@ const winPatterns = [
 ]
 
 let lastMove;
-let game = {
-    curMove:"X",
-    location:0,
-    OWins:[],
-    XWins:[],
-    wonBoxes:[]
-}
+// let game = {
+//     curMove:"X",
+//     location:0,
+//     OWins:[],
+//     XWins:[],
+//     wonBoxes:[]
+// }
+
+let game = new Game;
 resetBoxBorders();
 showTurn();
 
 
 function resetBoard(){
-    game = new game;
+    game = new Game();
     location.reload()
     resetBoxBorders();
     showTurn();

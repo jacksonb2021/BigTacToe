@@ -143,9 +143,16 @@
 
     <div id="error"></div>
 
-    <div class="buttons">
+    <div class="sidebyside">
         <button class="button">rules</button>
-        <button class="button">new game</button>
+        <embed class='rules' type="text/html" src="index.html" width="500" height="200">
+        <button class="button" onclick="resetBoard()">new game</button>
+
+    </div>
+
+    <div class="sidebyside">
+        <div id="XWins"></div>
+        <div id="YWins"></div>
 
     </div>
 </div>
