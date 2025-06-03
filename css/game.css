@@ -73,6 +73,9 @@ body {
 .inner-cell button:hover {
     background-color: #ddd;
 }
+.last-move{
+    color:green;
+}
 
 #error{
     color:red;
