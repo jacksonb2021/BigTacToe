@@ -2,38 +2,31 @@
     box-sizing: border-box;
 }
 
-.inner-cell {
-    width: 100%;
-    height: 100%;
-}
-
-/*todo: highlight last move*/
-
-.inner-cell button {
-    width: 100%;
-    height: 100%;
-    font-size: 2em; /* fixed size */
-    background-color: #fff;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-#turn{
-    font-size: 16px;
-}
 body {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
 }
+
+.wrapper{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    gap:15px;
+    border-color:red;
+}
+
+#turn{
+    font-size: 16px;
+    font-weight:bold;
+    margin-bottom:10px;
+    color:red;
+}
+
 .board {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -41,6 +34,7 @@ body {
     background-color: #000;
     padding: 5px;
 }
+
 .cell {
     width: 150px;
     height: 150px;
@@ -49,6 +43,7 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 .inner-board {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -57,6 +52,11 @@ body {
     height: 100%;
     gap: 2px;
     background-color: #000;
+}
+
+.inner-cell {
+    width: 100%;
+    height: 100%;
 }
 
 .inner-cell button {
@@ -70,13 +70,38 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 .inner-cell button:hover {
     background-color: #ddd;
 }
+
 .last-move{
     color:green;
 }
 
 #error{
     color:red;
+    font-weight:bold;
+    text-align: center;
+}
+
+.buttons{
+    display:flex;
+    gap:10px;
+
+}
+
+.button{
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover{
+    background-color:#0056b3
 }
