@@ -42,7 +42,7 @@ h1{
     color:red;
 }
 
-.board {
+#board {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 5px;
@@ -122,5 +122,5 @@ h1{
 }
 
 .hidden{
-    display:none;
+    display:none !important;
 }
