@@ -7,6 +7,14 @@ class Game{
         this.wonBoxes=[];
 
     }
+
+    changeMove(){
+        if (game.curMove==="X"){
+            game.curMove="O";
+        } else {
+            game.curMove="X";
+        }
+    }
 }
 
 const error = document.getElementById("error")
@@ -17,18 +25,11 @@ const winPatterns = [
 ]
 
 let lastMove;
-// let game = {
-//     curMove:"X",
-//     location:0,
-//     OWins:[],
-//     XWins:[],
-//     wonBoxes:[]
-// }
+
 
 let game = new Game;
 resetBoxBorders();
-showTurn();
-
+// disableButtons()
 
 function resetBoard(){
     game = new Game();
@@ -36,21 +37,31 @@ function resetBoard(){
     resetBoxBorders();
     showTurn();
 }
+
+function disableButtons(){
+    document.querySelectorAll("button").forEach(btn=>{
+        btn.disabled=true;
+    })
+}
+
 function setWinner(winner){
     //TODO - mark a big line through where they won - might be hard for diagonals
-    // winner screen
     //reset method
+    let winElem = document.getElementById("winner")
+    //hide elements
+    document.getElementById("board").classList.add("hidden")
+    document.getElementById("turn").classList.add("hidden")
+    winElem.innerText=`${winner} Wins!`
+    winElem.classList.remove("hidden")
+    disableButtons();
+
+
+
 
 
 }
 
-function changeMove(){
-    if (game.curMove==="X"){
-        game.curMove="O";
-    } else {
-        game.curMove="X";
-    }
-}
+
 
 function setError(message){
     error.innerText=message;
@@ -72,7 +83,7 @@ function setBoxColor(cell) {
 
 function showTurn(){
     let elem = document.getElementById('turn')
-    elem.innerText=game.curMove;
+    elem.innerText=game.curMove+" move";
 }
 
 function placeBox(elem) {
@@ -99,8 +110,9 @@ function placeBox(elem) {
     lastMove=elem;
     game.location = innerbox;
     setBoxColor(innerbox);
-    changeMove();
+    game.changeMove();
     checkWin(outerbox)
+    checkWin()
     showTurn()
     setError("")
 
@@ -112,9 +124,9 @@ function checkWin(curCell){
     let XBox = [];
     let OBox = [];
     let i = 1;
-    let box = document.getElementById(`cell${curCell}`).firstElementChild.children;
     //check individual cell
     if(curCell!==undefined) {
+        let box = document.getElementById(`cell${curCell}`).firstElementChild.children;
         for(const child of box){
             if(child.innerText==="X"){
                 XBox.push(i);
@@ -142,7 +154,7 @@ function checkWin(curCell){
 
         }
 
-
+    //todo test
     } else {
         for(const pattern of winPatterns){
             if(pattern.every(pos=>game.OWins.includes(pos))){
