@@ -9,9 +9,10 @@
 <div class="wrapper">
     <h1>BigTacToe</h1>
 
-    <div id="turn"></div>
+    <div id="winner" class="hidden"></div>
+    <div id="turn">X move</div>
 
-    <div class="board">
+    <div id="board">
 
         <div class="cell" id="cell1">
             <div class="inner-board">
@@ -145,7 +146,7 @@
 
     <div class="sidebyside">
         <button class="button">rules</button>
-        <embed class='rules' type="text/html" src="index.html" width="500" height="200">
+        <embed class='rules hidden' type="text/html" src="index.html" width="500" height="200">
         <button class="button" onclick="resetBoard()">new game</button>
 
     </div>
