@@ -20,8 +20,23 @@ body {
     border-color:red;
 }
 
+h1{
+    font-size: 50px;
+}
+
+#winner {
+    font-size: 24px;
+    font-weight: bold;
+    color: green;
+    margin-top: 10px;
+    text-align: center;
+
+}
+
+
+
 #turn{
-    font-size: 16px;
+    font-size: 20px;
     font-weight:bold;
     margin-bottom:10px;
     color:red;
@@ -106,6 +121,6 @@ body {
     background-color:#0056b3
 }
 
-.rules{
-    display: none;
+.hidden{
+    display:none;
 }
